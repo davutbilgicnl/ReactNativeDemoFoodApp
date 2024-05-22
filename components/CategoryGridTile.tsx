@@ -1,14 +1,10 @@
 import { Pressable, View, Text } from 'react-native';
+import Category from '../models/category';
 
-interface CategoryGridTileProps {
-  title: string;
-  color: string;
-}
-
-const CategoryGridTile: React.FC<CategoryGridTileProps> = ({ title, color }) => {
+const CategoryGridTile: React.FC<Category> = ({ id, title, color }) => {
   return (
     <View>
-      <Pressable>
+      <Pressable key={id}>
         <View>
           <Text>{title}</Text>
         </View>
