@@ -1,20 +1,22 @@
+export interface ICategory {
+  id: string;
+  title: string;
+  color: string;
+}
+
 /**
  * Category class
  *
  * @description Represents a category with an id, title, and color.
+ * @param id - The id of the category.
+ * @param title - The title of the category.
+ * @param color - The color associated with the category.
  */
-class Category {
-  public id: string;
-  public title: string;
-  public color: string;
+class Category implements ICategory {
+  id: string;
+  title: string;
+  color: string;
 
-  /**
-   * Creates a new Category.
-   *
-   * @param id - The id of the category.
-   * @param title - The title of the category.
-   * @param color - The color associated with the category.
-   */
   constructor(id: string, title: string, color: string) {
     this.id = id;
     this.title = title;
