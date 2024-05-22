@@ -17,6 +17,7 @@ const CategoriesScreen: React.FC<CategoriesScreenProps> = () => {
       data={CATEGORIES}
       keyExtractor={(item) => item.id}
       renderItem={renderCategoryItem}
+      numColumns={2}
     ></FlatList>
   );
 };
