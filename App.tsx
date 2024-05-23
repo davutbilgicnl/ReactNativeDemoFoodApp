@@ -1,12 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import CategoriesScreen from './screens/CategoriesScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 const App: React.FC = () => {
   return (
     <>
-      <StatusBar style="light" />
-      <CategoriesScreen />
+      <StatusBar style="auto" />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="MelasCategories" component={CategoriesScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 };
