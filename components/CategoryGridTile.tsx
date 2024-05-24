@@ -1,6 +1,7 @@
 import { Pressable, View, Text, StyleSheet, Platform } from 'react-native';
 import Category from '../models/category';
 import { ICategory } from '../models/category';
+import Card from './ui/Card';
 
 interface ICategoryGridTileProps extends ICategory {
   onPress: () => void;
@@ -8,7 +9,7 @@ interface ICategoryGridTileProps extends ICategory {
 
 const CategoryGridTile: React.FC<ICategoryGridTileProps> = ({ id, title, color, onPress }) => {
   return (
-    <View style={styles.gridItem}>
+    <Card style={styles.gridItem}>
       <Pressable
         android_ripple={{ color: '#cccc' }}
         style={({ pressed }) => [{ flex: 1 }, pressed && styles.iosClickEffect]}
@@ -19,7 +20,7 @@ const CategoryGridTile: React.FC<ICategoryGridTileProps> = ({ id, title, color, 
           <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
-    </View>
+    </Card>
   );
 };
 
@@ -30,16 +31,6 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 15,
     height: 150,
-    borderRadius: 8,
-    overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
-    elevation: 4,
-
-    //ios shadow
-    backgroundColor: 'white',
-    shadowColor: 'black',
-    shadowOpacity: 0.26,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 8,
   },
 
   iosClickEffect: {
