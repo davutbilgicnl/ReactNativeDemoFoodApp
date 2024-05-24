@@ -20,7 +20,7 @@ const App: React.FC = () => {
     <>
       <StatusBar style="auto" />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="MealsCategories">
           <Stack.Screen name="MelasCategories" component={CategoriesScreen} />
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
         </Stack.Navigator>
