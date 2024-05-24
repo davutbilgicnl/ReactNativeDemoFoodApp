@@ -4,11 +4,11 @@ import Category from '../models/category';
 import CategoryGridTile from '../components/CategoryGridTile';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
-interface CategoriesScreenProps {
+interface ICategoriesScreenProps {
   navigation: NavigationProp<ParamListBase>;
 }
 
-const CategoriesScreen: React.FC<CategoriesScreenProps> = ({ navigation }) => {
+const CategoriesScreen: React.FC<ICategoriesScreenProps> = ({ navigation }) => {
   const pressHandler = () => {
     navigation.navigate('MealsOverview');
   };
