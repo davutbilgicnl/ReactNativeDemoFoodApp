@@ -1,6 +1,6 @@
-import { FlatList, ListRenderItem, Text, View } from 'react-native';
+import { FlatList, ListRenderItem } from 'react-native';
 import { CATEGORIES } from '../data/dummy-data';
-import Category from '../models/category';
+import { ICategory } from '../models/category';
 import CategoryGridTile from '../components/CategoryGridTile';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
@@ -9,11 +9,12 @@ interface ICategoriesScreenProps {
 }
 
 const CategoriesScreen: React.FC<ICategoriesScreenProps> = ({ navigation }) => {
-  const pressHandler = () => {
-    navigation.navigate('MealsOverview');
-  };
+  const renderCategoryItem: ListRenderItem<ICategory> = ({ item }) => {
+    const pressHandler = () => {
+      //second argument is optional and should be object
+      navigation.navigate('MealsOverview', item);
+    };
 
-  const renderCategoryItem: ListRenderItem<Category> = ({ item }) => {
     return (
       <CategoryGridTile id={item.id} title={item.title} color={item.color} onPress={pressHandler} />
     );
