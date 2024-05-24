@@ -2,7 +2,7 @@ import { Pressable, View, Text, StyleSheet, Platform } from 'react-native';
 import Category from '../models/category';
 import { ICategory } from '../models/category';
 
-interface ICategoryGridTileProps extends Category {
+interface ICategoryGridTileProps extends ICategory {
   onPress: () => void;
 }
 
