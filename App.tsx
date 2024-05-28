@@ -12,6 +12,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
+import { ICategory } from './models/category';
 
 const Stack = createStackNavigator();
 
@@ -37,13 +38,7 @@ const App: React.FC = () => {
               title: 'All Categories',
             }}
           />
-          <Stack.Screen
-            name="MealsOverview"
-            component={MealsOverviewScreen}
-            options={{
-              title: 'Meals Overview',
-            }}
-          />
+          <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
