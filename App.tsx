@@ -13,6 +13,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
 import { ICategory } from './models/category';
+import MealDetailScreen from './screens/MealDetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -39,6 +40,13 @@ const App: React.FC = () => {
             }}
           />
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
+          <Stack.Screen
+            name="MealDetail"
+            component={MealDetailScreen}
+            options={{
+              title: 'Meal Details',
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
