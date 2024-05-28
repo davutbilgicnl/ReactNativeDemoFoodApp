@@ -26,6 +26,7 @@ const CategoriesScreen: React.FC<ICategoriesScreenProps> = ({ navigation }) => {
       keyExtractor={(item) => item.id}
       renderItem={renderCategoryItem}
       numColumns={2}
+      style={{ backgroundColor: '#3f2f25' }}
     ></FlatList>
   );
 };

@@ -25,6 +25,7 @@ const MealsOverviewScreen: React.FC<IMealsOverviewScreenProps> = ({ navigation, 
         data={displayedMeals}
         keyExtractor={(item: IMeal) => item.id}
         renderItem={renderMealItem}
+        style={{ backgroundColor: '#3f2f25' }}
       />
     </View>
   );
@@ -36,5 +37,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor: '#3f2f25',
   },
 });
