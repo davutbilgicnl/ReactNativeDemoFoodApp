@@ -1,6 +1,7 @@
 import { NavigationProp, ParamListBase, RouteProp } from '@react-navigation/native';
 import { IMeal } from '../models/meal';
 import MealItemDetail from '../components/MealItemDetail';
+import { StyleSheet } from 'react-native';
 
 interface IMealDetailScreenProps {
   navigation: NavigationProp<ParamListBase>;
@@ -13,3 +14,5 @@ const MealDetailScreen: React.FC<IMealDetailScreenProps> = ({ navigation, route 
 };
 
 export default MealDetailScreen;
+
+const styles = StyleSheet.create({});
