@@ -3,19 +3,42 @@ import { StyleSheet } from 'react-native';
 import CategoriesScreen from './screens/CategoriesScreen';
 
 //https://reactnavigation.org/
-//npm install @react-navigation/native
-//npm install react-native-screens react-native-safe-area-context
 import { NavigationContainer } from '@react-navigation/native';
-
-//https://reactnavigation.org/docs/stack-navigator/
-//npm install @react-navigation/stack
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
-import { ICategory } from './models/category';
 import MealDetailScreen from './screens/MealDetailScreen';
+import FavoritesScreen from './screens/FavoritesScreen';
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+
+const DrawerNavigator = () => {
+  return (
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#351401',
+        },
+        headerTintColor: 'white',
+        sceneContainerStyle: {
+          backgroundColor: '#3f2f25',
+        },
+        headerTitleAlign: 'center',
+      }}
+    >
+      <Drawer.Screen
+        name="Categories"
+        component={CategoriesScreen}
+        options={{
+          title: 'All Categories',
+        }}
+      />
+      <Drawer.Screen name="Favorites" component={FavoritesScreen} />
+    </Drawer.Navigator>
+  );
+};
 
 const App: React.FC = () => {
   return (
@@ -33,10 +56,11 @@ const App: React.FC = () => {
           }}
         >
           <Stack.Screen
-            name="MelasCategories"
-            component={CategoriesScreen}
+            name="Drawer"
+            component={DrawerNavigator}
             options={{
-              title: 'All Categories',
+              // title: 'All Categories',
+              headerShown: false,
             }}
           />
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
@@ -44,7 +68,7 @@ const App: React.FC = () => {
             name="MealDetail"
             component={MealDetailScreen}
             options={{
-              title: 'Meal Details',
+              title: 'About The Meal',
             }}
           />
         </Stack.Navigator>
