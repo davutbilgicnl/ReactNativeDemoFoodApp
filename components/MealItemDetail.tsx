@@ -1,20 +1,24 @@
 import { Text, View, Image, StyleSheet } from 'react-native';
-import Card from './ui/Card';
 import { IMeal } from '../models/meal';
+import MealDetails from './MealDetails';
 
 interface IMealItemDetailProps {
   mealItem: IMeal;
 }
 
 const MealItemDetail: React.FC<IMealItemDetailProps> = ({ mealItem }) => {
+  const {} = mealItem;
+
   return (
     <View style={styles.container}>
-      <Card>
-        <View>
-          <Image source={{ uri: mealItem.imageUrl }} style={styles.image} />
-          <Text>{mealItem.title}</Text>
-        </View>
-      </Card>
+      <Image source={{ uri: mealItem.imageUrl }} style={styles.image} />
+      <MealDetails mealItem={mealItem} />
+      {mealItem.ingredients.map((ingredient, index) => (
+        <Text key={'ingredient_' + index}>{ingredient}</Text>
+      ))}
+      {mealItem.steps.map((step, index) => (
+        <Text key={'step_' + index}>- {step}</Text>
+      ))}
     </View>
   );
 };
@@ -30,4 +34,5 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
   },
+  detailItem: {},
 });

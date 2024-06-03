@@ -2,6 +2,7 @@ import { Image, Pressable, Text, View, StyleSheet, Platform } from 'react-native
 import { IMeal } from '../models/meal';
 import Card from './ui/Card';
 import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
+import MealDetails from './MealDetails';
 
 interface MealItemProps {
   mealItem: IMeal;
@@ -29,11 +30,7 @@ const MealItem: React.FC<MealItemProps> = ({ mealItem }) => {
             <Image source={{ uri: imageUrl }} style={styles.image} />
             <Text style={styles.title}>{title}</Text>
           </View>
-          <View style={styles.details}>
-            <Text style={styles.detailItem}>{duration.toString().toUpperCase()}</Text>
-            <Text style={styles.detailItem}>{complexity.toString().toUpperCase()}</Text>
-            <Text style={styles.detailItem}>{affordability.toString().toUpperCase()}</Text>
-          </View>
+          <MealDetails mealItem={mealItem} />
         </View>
       </Pressable>
     </Card>
@@ -58,16 +55,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     margin: 8,
   },
-  details: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8,
-  },
-  detailItem: {
-    marginHorizontal: 4,
-    fontSize: 12,
-  },
+
   iosClickEffect: {
     opacity: 0.5,
   },
