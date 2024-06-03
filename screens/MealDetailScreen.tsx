@@ -3,6 +3,7 @@ import { IMeal } from '../models/meal';
 import MealItemDetail from '../components/MealItemDetail';
 import { Button, StyleSheet } from 'react-native';
 import { useLayoutEffect } from 'react';
+import IconButton from '../components/IconButton';
 
 interface IMealDetailScreenProps {
   navigation: NavigationProp<ParamListBase>;
@@ -19,7 +20,7 @@ const MealDetailScreen: React.FC<IMealDetailScreenProps> = ({ navigation, route 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Button title="Tab me!" onPress={headerRightButtonHandler} />;
+        return <IconButton iconName="star" color="#fff" onPress={headerRightButtonHandler} />;
       },
     });
   }, [navigation, headerRightButtonHandler]);
