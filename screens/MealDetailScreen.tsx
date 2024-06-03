@@ -1,7 +1,8 @@
 import { NavigationProp, ParamListBase, RouteProp } from '@react-navigation/native';
 import { IMeal } from '../models/meal';
 import MealItemDetail from '../components/MealItemDetail';
-import { StyleSheet } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
+import { useLayoutEffect } from 'react';
 
 interface IMealDetailScreenProps {
   navigation: NavigationProp<ParamListBase>;
@@ -10,6 +11,19 @@ interface IMealDetailScreenProps {
 
 const MealDetailScreen: React.FC<IMealDetailScreenProps> = ({ navigation, route }) => {
   const mealItem = route.params as IMeal;
+
+  const headerRightButtonHandler = () => {
+    console.log('Tabbed!');
+  };
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <Button title="Tab me!" onPress={headerRightButtonHandler} />;
+      },
+    });
+  }, [navigation, headerRightButtonHandler]);
+
   return <MealItemDetail mealItem={mealItem}></MealItemDetail>;
 };
 
