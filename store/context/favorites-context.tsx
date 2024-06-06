@@ -6,7 +6,7 @@ interface IFavoriteContextState {
   removeFavorite: (id: string) => void;
 }
 
-export const FavoriteContext = createContext<IFavoriteContextState | undefined>({
+export const FavoriteContext = createContext<IFavoriteContextState>({
   idsOfFavorites: [],
   addFavorite: (id: string) => {
     console.warn('addFavorite was called without a FavoriteContext provider');

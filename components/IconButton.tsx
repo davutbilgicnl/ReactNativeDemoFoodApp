@@ -2,7 +2,7 @@ import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet } from 'react-native';
 
-type IconName = 'star' | undefined;
+type IconName = 'star' | 'star-outline' | undefined;
 
 interface IconButtonProps {
   iconName: IconName;
