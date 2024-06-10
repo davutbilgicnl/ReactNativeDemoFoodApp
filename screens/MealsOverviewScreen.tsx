@@ -2,7 +2,7 @@ import { MEALS } from '../data/dummy-data';
 import { NavigationProp, RouteProp, ParamListBase } from '@react-navigation/native';
 import { ICategory } from '../models/category';
 import { IMeal } from '../models/meal';
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useMemo } from 'react';
 import MealsList from '../components/ui/MealsList';
 
 interface IMealsOverviewScreenProps {
@@ -13,7 +13,9 @@ interface IMealsOverviewScreenProps {
 const MealsOverviewScreen: React.FC<IMealsOverviewScreenProps> = ({ navigation, route }) => {
   const { id: categoryId, title: categoryTitle } = route.params as ICategory;
 
-  const displayedMeals: IMeal[] = MEALS.filter((meal) => meal.categoryIds.includes(categoryId));
+  const displayedMeals = useMemo(() => {
+    return MEALS.filter((meal) => meal.categoryIds.includes(categoryId));
+  }, [categoryId]);
 
   // useLayoutEffect is used here to ensure that the navigation options are set
   // before the browser paints the screen. This prevents any flickering effect
