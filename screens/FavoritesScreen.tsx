@@ -1,8 +1,7 @@
 import { NavigationProp, ParamListBase, RouteProp } from '@react-navigation/native';
-import { useContext, useLayoutEffect, useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { FavoriteContext } from '../store/context/favorites-context';
-import { IMeal } from '../models/meal';
 import { MEALS } from '../data/dummy-data';
 import MealsList from '../components/ui/MealsList';
 
