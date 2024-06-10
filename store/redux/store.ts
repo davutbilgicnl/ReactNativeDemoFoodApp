@@ -7,3 +7,6 @@ export const store = configureStore({
     favoriteMeals: favoritesReducer,
   },
 });
+
+//to improve type safety and get better autocompletion
+export type RootState = ReturnType<typeof store.getState>;

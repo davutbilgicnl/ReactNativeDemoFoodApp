@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface IFavoritesState {
-  favoritesIds: string[];
+  Ids: string[];
 }
 
 const initialState: IFavoritesState = {
-  favoritesIds: [],
+  Ids: [],
 };
 
 const favoritesSlice = createSlice({
@@ -13,12 +13,12 @@ const favoritesSlice = createSlice({
   initialState,
   reducers: {
     addFavorite: (state, action: PayloadAction<string>) => {
-      if (!state.favoritesIds.includes(action.payload)) {
-        state.favoritesIds.push(action.payload);
+      if (!state.Ids.includes(action.payload)) {
+        state.Ids.push(action.payload);
       }
     },
     removeFavorite: (state, action: PayloadAction<string>) => {
-      state.favoritesIds = state.favoritesIds.filter((id) => id !== action.payload);
+      state.Ids = state.Ids.filter((id) => id !== action.payload);
     },
   },
 });

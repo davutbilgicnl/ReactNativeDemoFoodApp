@@ -4,6 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { FavoriteContext } from '../store/context/favorites-context';
 import { MEALS } from '../data/dummy-data';
 import MealsList from '../components/ui/MealsList';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/redux/store';
 
 interface IFavoritesScreenProps {
   navigation: NavigationProp<ParamListBase>;
@@ -11,8 +13,11 @@ interface IFavoritesScreenProps {
 }
 
 const FavoritesScreen: React.FC<IFavoritesScreenProps> = ({ navigation, route }) => {
-  const favoriteMealsCtx = useContext(FavoriteContext);
-  const favoriteMealsIds = favoriteMealsCtx.idsOfFavorites;
+  // canceled the use of context because of using redux
+  // const favoriteMealsCtx = useContext(FavoriteContext);
+  // const favoriteMealsIds = favoriteMealsCtx.idsOfFavorites;
+
+  const favoriteMealsIds = useSelector((state: RootState) => state.favoriteMeals.Ids);
 
   const favoriteMeals = useMemo(
     () => MEALS.filter((meal) => favoriteMealsIds.includes(meal.id)),
