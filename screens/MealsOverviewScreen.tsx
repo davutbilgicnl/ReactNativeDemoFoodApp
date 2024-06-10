@@ -1,10 +1,9 @@
-import { StyleSheet, FlatList, View, ListRenderItem, Text } from 'react-native';
 import { MEALS } from '../data/dummy-data';
 import { NavigationProp, RouteProp, ParamListBase } from '@react-navigation/native';
 import { ICategory } from '../models/category';
 import { IMeal } from '../models/meal';
-import MealItem from '../components/MealItem';
 import { useLayoutEffect } from 'react';
+import MealsList from '../components/ui/MealsList';
 
 interface IMealsOverviewScreenProps {
   navigation: NavigationProp<ParamListBase>;
@@ -31,26 +30,7 @@ const MealsOverviewScreen: React.FC<IMealsOverviewScreenProps> = ({ navigation, 
   }),
     [categoryId, categoryTitle, navigation];
 
-  const renderMealItem: ListRenderItem<IMeal> = ({ item }) => <MealItem mealItem={item}></MealItem>;
-
-  return (
-    <View style={styles.container}>
-      <FlatList
-        data={displayedMeals}
-        keyExtractor={(item: IMeal) => item.id}
-        renderItem={renderMealItem}
-        style={{ backgroundColor: '#3f2f25' }}
-      />
-    </View>
-  );
+  return <MealsList meals={displayedMeals} />;
 };
 
 export default MealsOverviewScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: '#3f2f25',
-  },
-});
